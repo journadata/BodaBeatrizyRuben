@@ -17,9 +17,14 @@
         background-image: url('img/fotoportadaBea&Rubenrec.jpg');
         background-size: cover;
         background-position: center center;
+        -webkit-background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
       }
 
       .hero-body {
+        width: 100%;
         color: #ff69b4;
         font-family: 'Dancing Script', cursive;
         display: flex;
@@ -29,33 +34,35 @@
       }
 
       .hero-text-box {
-        align-self: flex-end;
+        margin: 0 auto 2rem auto;
         background-color: rgba(0, 0, 0, 0.5);
         padding: 1.5rem;
         border-radius: 12px;
-        text-align: right;
+        text-align: center;
         max-width: 100%;
       }
 
       .hero .title {
         color: #B8C0A8;
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: bold;
         text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        -webkit-text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
       }
 
       .hero .subtitle {
         color: #E2C290;
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-weight: bold;
         text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+        -webkit-text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
       }
 
       .hero-date-button {
-        align-self: flex-start;
+        margin: 1.5rem auto 0 auto;
         font-family: 'Roboto Slab', serif;
-        font-size: 1.4rem;
-        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
         line-height: 1.4;
         box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       }
@@ -63,35 +70,71 @@
       @media screen and (max-width: 768px) {
         .hero .title {
           font-size: 2rem;
-          text-align: center;
         }
 
         .hero .subtitle {
-          font-size: 1.3rem;
-          text-align: center;
+          font-size: 1.2rem;
         }
 
         .hero-body {
           align-items: center;
-          text-align: center;
-        }
-
-        .hero-text-box {
-          align-self: center;
-          text-align: center;
-        }
-
-        .hero-date-button {
-          align-self: center;
-          margin-top: 2rem;
         }
       }
     </style>
-  </head>
+  
+<style>
+  @media (prefers-color-scheme: dark) {
+    body, section, .hero, .navbar, .footer, .card, .box, .message, .dropdown-content {
+      background-color: #121212 !important;
+      color: #f1f1f1 !important;
+    }
+
+    .hero .title, .hero .subtitle,
+    .title, .subtitle,
+    .label, .navbar-item, .content, .message-body, .message-header, .footer {
+      color: #f1f1f1 !important;
+    }
+
+    .navbar, .navbar-menu, .navbar-dropdown, .box, .message, .card, .footer {
+      background-color: #1e1e1e !important;
+    }
+
+    .button.is-primary, .button.is-link, .button.is-white {
+      background-color: #bb86fc !important;
+      color: #000 !important;
+    }
+
+    .button.is-light, .button.is-outlined {
+      background-color: transparent !important;
+      border-color: #f1f1f1 !important;
+      color: #f1f1f1 !important;
+    }
+
+    input, textarea, select {
+      background-color: #2c2c2c !important;
+      color: #f1f1f1 !important;
+      border-color: #444 !important;
+    }
+
+    .box, .card, .message-body {
+      border-color: #333 !important;
+    }
+
+    a, a:visited {
+      color: #90caf9 !important;
+    }
+
+    code {
+      background-color: #2c2c2c !important;
+      color: #f1f1f1 !important;
+    }
+  }
+</style>
+
+</head>
   <body>
 
-    <!-- Navbar -->
-    <nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation" style="background-color: #D8A7B1;">
+    <nav class="navbar is-light is-spaced" role="navigation" style="background-color: #D8A7B1;">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">💍 Nuestra Boda</a>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
@@ -121,8 +164,7 @@
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero is-large">
+    <section class="hero">
       <div class="hero-body">
         <div class="hero-text-box">
           <p class="title">¡Nos casamos!</p>
@@ -135,7 +177,7 @@
     </section>
 
     <script>
-      // Navbar burger toggle
+      // Burger menu for mobile
       document.addEventListener('DOMContentLoaded', () => {
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
         if ($navbarBurgers.length > 0) {
@@ -150,6 +192,10 @@
         }
       });
     </script>
+
+  </body>
+</html>
+
 
   </body>
 </html>
