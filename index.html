@@ -2,49 +2,95 @@
 <html lang="es">
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Boda de Beatriz y Rubén</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
-<!-- Cargar la tipografía romántica -->
+
     <style>
-      
       .card {
-        background-color: #D8A7B1; /* rosa antiguo" */
+        background-color: #D8A7B1;
       }
-          /* Fondo del Hero */
-          .hero {
-        background-image: url('img/fotoportadaBea&Rubenrec.jpg'); 
+
+      .hero {
+        background-image: url('img/fotoportadaBea&Rubenrec.jpg');
         background-size: cover;
         background-position: center center;
       }
 
-      /* Estilo de las letras del hero */
       .hero-body {
-        color: #ff69b4; /* Color rosa */
-        font-family: 'Dancing Script', cursive; /* Tipografía romántica */
+        color: #ff69b4;
+        font-family: 'Dancing Script', cursive;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
       }
 
-      .hero .title, .hero .subtitle {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agregar sombra suave al texto */
+      .hero-text-box {
+        align-self: flex-end;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: right;
+        max-width: 100%;
       }
 
       .hero .title {
         color: #B8C0A8;
-        font-size: 3.5rem; /* Tamaño grande para el título */
-        font-weight: bold; /* Negrita para el título */
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
       }
 
       .hero .subtitle {
         color: #E2C290;
-        font-size: 2rem; /* Tamaño medio para el subtítulo */
-        font-weight: bold; /* Negrita para el subtítulo */
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+      }
+
+      .hero-date-button {
+        align-self: flex-start;
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.4rem;
+        padding: 1.2rem 2rem;
+        line-height: 1.4;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero .title {
+          font-size: 2rem;
+          text-align: center;
+        }
+
+        .hero .subtitle {
+          font-size: 1.3rem;
+          text-align: center;
+        }
+
+        .hero-body {
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero-text-box {
+          align-self: center;
+          text-align: center;
+        }
+
+        .hero-date-button {
+          align-self: center;
+          margin-top: 2rem;
+        }
       }
     </style>
   </head>
   <body>
+
+    <!-- Navbar -->
     <nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation" style="background-color: #D8A7B1;">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">💍 Nuestra Boda</a>
@@ -57,60 +103,57 @@
 
       <div id="mainNavbar" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#Sobre-nosotros">Los novios</a>
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#Donde">¿Dónde?</a>
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#Eventos">Eventos</a>
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#Alojamiento">¿Dónde dormir?</a>
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#MasInfo">+Info</a>
+          <a class="navbar-item has-text-white" href="#Sobre-nosotros">Los novios</a>
+          <a class="navbar-item has-text-white" href="#Donde">¿Dónde?</a>
+          <a class="navbar-item has-text-white" href="#Eventos">Eventos</a>
+          <a class="navbar-item has-text-white" href="#Alojamiento">¿Dónde dormir?</a>
+          <a class="navbar-item has-text-white" href="#MasInfo">+Info</a>
           <a class="navbar-item" href="#Confirmar">
-            <button class="button as-text-weight-bold" style="background-color: #eb3572; color: white;">¡Sí, quiero ir!</button>
+            <button class="button" style="background-color: #eb3572; color: white;">¡Sí, quiero ir!</button>
           </a>
-<!-- SECCIÓN LOCALIZACIÓN 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link has-text-white as-text-weight-semibold">Info útil</a>
-            <div class="navbar-dropdown">
-              <a href="peluqueria.html" class="button is-link is-light mt-4">Peluquería</a>
-              <a class="navbar-item">¿Qué me pongo?</a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">Dónde comer</a>
-              <a class="navbar-item">Qué ver</a>
-            </div>
-          </div>
--->
-          
-          
         </div>
         <div class="navbar-end">
-       
-          <a class="navbar-item has-text-white as-text-weight-bold" href="#Regalito">🎁 Detalle</a>
+          <a class="navbar-item has-text-white" href="#Regalito">🎁 Detalle</a>
           <a class="navbar-item has-text-white" href="mailto:bodabeatrizyruben2025@gmail.com">
-            <button class="button is-white as-text-weight-bold">Contacta</button>
+            <button class="button is-white">Contacta</button>
           </a>
         </div>
       </div>
     </nav>
-    <section class="hero is-large" style="background-image: url('img/fotoportadaBea&Rubenrec.jpg'); background-size: cover; background-position: center center; position: relative;">
+
+    <!-- Hero -->
+    <section class="hero is-large">
       <div class="hero-body">
-        <!-- Texto en la parte superior derecha -->
-        <div style="position: absolute; top: 2rem; right: 2rem; text-align: right;">
-          <div style="background-color: rgba(0, 0, 0, 0.5); padding: 1.5rem; border-radius: 12px;">
-            <p class="title is-size-1 has-text-weight-bold has-text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
-              ¡Nos casamos!
-            </p>
-            <p class="subtitle is-size-3 has-text-weight-semibold has-text-white" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.5);">
-              Beatriz y Rubén
-            </p>
-          </div>
+        <div class="hero-text-box">
+          <p class="title">¡Nos casamos!</p>
+          <p class="subtitle">Beatriz y Rubén</p>
         </div>
-    
-        <!-- Botón de fecha en la parte inferior izquierda con estilo de calendario -->
-        <div style="position: absolute; bottom: 2rem; left: 2rem;">
-          <button class="button is-rounded is-light is-outlined" style="font-family: 'Roboto Slab', serif; font-size: 1.4rem; padding: 1.2rem 2rem; line-height: 1.4; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-             <span style="display: block;">Sábado, 27 de septiembre de 2025</span>
-          </button>
-        </div>
+        <button class="button is-rounded is-light is-outlined hero-date-button">
+          Sábado, 27 de septiembre de 2025
+        </button>
       </div>
     </section>
+
+    <script>
+      // Navbar burger toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+          $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>
+
     
     <section class="section has-text-centered"  style="background-color: #F9E5E5;">
       <h2 class="title is-3">⏳ Cuenta atrás para el gran día</h2>
