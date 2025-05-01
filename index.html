@@ -608,7 +608,7 @@
     </section>
 
 <!-- CONFIRMACIÓN-->
-    <!-- CONFIRMACIÓN-->
+  
     <section class="section is-medium" id="Confirmar">
       <h1 class="title has-text-centered has-text-weight-bold" style="font-family: 'Caveat', cursive; color: #B65C6B; font-size: 3rem;">
         ¡Sí, quiero ir!
@@ -625,14 +625,20 @@
               <input class="input" type="text" name="nombre" required>
             </div>
           </div>
+          <div class="field">
+            <label class="label">Correo electrónico *</label>
+            <div class="control">
+              <input class="input" type="text" name="nombre" required>
+            </div>
+          </div>
 
           <div class="field">
             <label class="label">¿Puedes asistir?</label>
             <div class="control">
               <div class="select">
                 <select name="asistencia">
-                  <option value="Sí">Sí</option>
-                  <option value="No">No</option>
+                  <option value="Sí">¡Sí, por supuesto!</option>
+                  <option value="No">No, lo siento</option>
                 </select>
               </div>
             </div>
@@ -770,7 +776,7 @@
         const form = e.target;
         const data = Object.fromEntries(new FormData(form).entries());
       
-        fetch("TU_WEB_APP_URL_DE_GOOGLE_AQUI", {
+        fetch("https://script.google.com/macros/s/AKfycbw-ud5-VTuRhekDrDiDpqlf07qugap82OdLLz91JeKczO2r8bLd3V42bwQ5vsnlhwsFow/exec", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
