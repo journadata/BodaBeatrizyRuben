@@ -477,7 +477,17 @@
               </p>
               <a href="https://www.hotelpenamontanesa.com/" target="_blank" class="button is-link is-small mt-2">Ver web</a>
               <div class="mt-4">
-                <iframe src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/192961019.jpg?k=0392bdcf7bc0d2b518cedc7f4aead478eb8a86d114e0718d20ee3cc93985d4af&o=" width="100%" height="700" style="border:0;" referrerpolicy="no-referrer-when-downgrade"></iframe>>
+                <img 
+                src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/192961019.jpg?k=0392bdcf7bc0d2b518cedc7f4aead478eb8a86d114e0718d20ee3cc93985d4af&o=" 
+                alt="Hotel Spa Peña Montañesa"
+                style="width: 100%; 
+                       height: 450px; 
+                       object-fit: cover; 
+                       border-radius: 12px; 
+                       user-drag: none; 
+                       user-select: none; 
+                       pointer-events: none; 
+                       cursor: default;">
               </div>
             </div>
           </div>
@@ -598,6 +608,7 @@
     </section>
 
 <!-- CONFIRMACIÓN-->
+    <!-- CONFIRMACIÓN-->
     <section class="section is-medium" id="Confirmar">
       <h1 class="title has-text-centered has-text-weight-bold" style="font-family: 'Caveat', cursive; color: #B65C6B; font-size: 3rem;">
         ¡Sí, quiero ir!
@@ -605,10 +616,91 @@
       <h2 class="subtitle has-text-centered" style="font-family: 'Caveat', cursive; color: #B65C6B;">
         ¿A qué estás esperando? Te agradeceríamos mucho que nos confirmes tu asistencia cuanto antes
       </h2>
-      <div class="container is-flex is-justify-content-center">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNXm39ZBMFnbvP0B49tlqrj2L9-ebzYPYsEm8gEL8FY-RWDQ/viewform?embedded=true" width="640" height="1998" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-       </div>
+
+      <div class="container is-max-desktop">
+        <form id="boda-form">
+          <div class="field">
+            <label class="label">Nombre y apellidos *</label>
+            <div class="control">
+              <input class="input" type="text" name="nombre" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">¿Puedes asistir?</label>
+            <div class="control">
+              <div class="select">
+                <select name="asistencia">
+                  <option value="Sí">Sí</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">¿Vendrás acompañado/a?</label>
+            <div class="control">
+              <div class="select">
+                <select name="acompanado">
+                  <option value="No">No</option>
+                  <option value="Sí">Sí</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Nombre del/los acompañantes</label>
+            <div class="control">
+              <input class="input" type="text" name="nombres_acompanantes">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">¿Vendrán niños?</label>
+            <div class="control">
+              <div class="select">
+                <select name="ninos">
+                  <option value="No">No</option>
+                  <option value="Sí">Sí</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">¿Tienes alguna alergia o intolerancia?</label>
+            <div class="control">
+              <input class="input" type="text" name="alergias">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Dieta especial (vegetariano, vegano, etc)</label>
+            <div class="control">
+              <input class="input" type="text" name="dieta">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Observaciones</label>
+            <div class="control">
+              <textarea class="textarea" name="observaciones"></textarea>
+            </div>
+          </div>
+
+          <div class="field is-grouped is-justify-content-center">
+            <div class="control">
+              <button class="button is-primary is-rounded" type="submit">💌 Confirmar asistencia</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="form-message" class="has-text-centered mt-4"></div>
+      </div>
     </section>
+
 
 <!-- sección REGALITO -->  
     <section class="section" id="Regalito">
@@ -670,6 +762,33 @@
         </p>
       </div>
     </footer>
+
+    <script>
+      document.getElementById("boda-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+      
+        const form = e.target;
+        const data = Object.fromEntries(new FormData(form).entries());
+      
+        fetch("TU_WEB_APP_URL_DE_GOOGLE_AQUI", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            document.getElementById("form-message").textContent = "¡Gracias por confirmar! 💕";
+            form.reset();
+          })
+          .catch(err => {
+            document.getElementById("form-message").textContent = "Error al enviar el formulario. Inténtalo de nuevo.";
+            console.error(err);
+          });
+      });
+      </script>
+      
   </body>
 
 </html>
