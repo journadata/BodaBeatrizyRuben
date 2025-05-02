@@ -772,15 +772,14 @@
       <div class="field">
         <label class="label">Nombre y apellidos *</label>
         <div class="control">
-          <input class="input" type="text" name="nombre" placeholder="Nombre" required>
-          <input class="input" type="text" name="apellido" placeholder="Apellido" required>
+          <input class="input" type="text" name="nombre" required>
         </div>
       </div>
 
       <div class="field">
         <label class="label">Correo electrónico *</label>
         <div class="control">
-          <input class="input" type="email" name="correo" placeholder="Correo Electrónico" required>
+          <input class="input" type="email" name="email" required>
         </div>
       </div>
 
@@ -788,8 +787,7 @@
         <label class="label">¿Puedes asistir?</label>
         <div class="control">
           <div class="select">
-            <select name="confirmacion_asistencia" required>
-              <option value="">Seleccione</option>
+            <select name="asistencia">
               <option value="Sí">¡Sí, por supuesto!</option>
               <option value="No">No, lo siento</option>
             </select>
@@ -801,10 +799,9 @@
         <label class="label">¿Vendrás acompañado/a?</label>
         <div class="control">
           <div class="select">
-            <select name="vendra_acompamiado" required>
-              <option value="">Seleccione</option>
-              <option value="Sí">Sí</option>
+            <select name="acompanado">
               <option value="No">No</option>
+              <option value="Sí">Sí</option>
             </select>
           </div>
         </div>
@@ -813,7 +810,7 @@
       <div class="field">
         <label class="label">Nombre del/los acompañantes</label>
         <div class="control">
-          <input class="input" type="text" name="nombres_acompanantes" placeholder="Nombre de los acompañantes">
+          <input class="input" type="text" name="nombres_acompanantes">
         </div>
       </div>
 
@@ -821,10 +818,9 @@
         <label class="label">¿Vendrán niños?</label>
         <div class="control">
           <div class="select">
-            <select name="vendran_ninos" required>
-              <option value="">Seleccione</option>
-              <option value="Sí">Sí</option>
+            <select name="ninos">
               <option value="No">No</option>
+              <option value="Sí">Sí</option>
             </select>
           </div>
         </div>
@@ -833,21 +829,21 @@
       <div class="field">
         <label class="label">¿Tienes alguna alergia o intolerancia?</label>
         <div class="control">
-          <input class="input" type="text" name="alergias" placeholder="Alergias o intolerancias">
+          <input class="input" type="text" name="alergias">
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Dieta especial</label>
+        <label class="label">Dieta especial (vegetariano, vegano, etc)</label>
         <div class="control">
-          <textarea class="textarea" name="dieta_especial" placeholder="Vegetariano, vegano, etc"></textarea>
+          <input class="input" type="text" name="dieta">
         </div>
       </div>
 
       <div class="field">
         <label class="label">Observaciones</label>
         <div class="control">
-          <textarea class="textarea" name="observaciones" placeholder="Observaciones"></textarea>
+          <textarea class="textarea" name="observaciones"></textarea>
         </div>
       </div>
 
@@ -863,20 +859,23 @@
 </section>
 
 <script>
-  document.getElementById("boda-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const formData = new FormData (this);
-    fetch('https://script.google.com/macros/s/AKfycbyypbdM-7aIctjLHUh_T8wVRwBu2H0kPGeH9p9lGewpLfmcTdw6Tsaa0JEmGWbIc1t1/exec', {
-      method: 'POST',
-      body: FormData
+  document.getElementById("boda-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    fetch("https://script.google.com/macros/s/AKfycbw-ud5-VTuRhekDrDiDpqlf07qugap82OdLLz91JeKczO2r8bLd3V42bwQ5vsnlhwsFow/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
     })
-    .then(response => response.text())
-    .then(data => {
-      alert('¡Gracias por confirmar! 💕');
-      this.reset();
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById("form-message").textContent = "¡Gracias por confirmar! 💕";
+      form.reset();
     })
-    .catch(error => {
-      console.error('Error al enviar el formulario. Inténtalo de nuevo.');
+    .catch(err => {
+      document.getElementById("form-message").textContent = "Error al enviar el formulario. Inténtalo de nuevo.";
       console.error(err);
     });
   });
@@ -945,7 +944,32 @@
       </div>
     </footer>
 
-    
+    <script>
+      document.getElementById("boda-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+      
+        const form = e.target;
+        const data = Object.fromEntries(new FormData(form).entries());
+      
+        fetch("https://script.google.com/macros/s/AKfycbw-ud5-VTuRhekDrDiDpqlf07qugap82OdLLz91JeKczO2r8bLd3V42bwQ5vsnlhwsFow/exec", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            document.getElementById("form-message").textContent = "¡Gracias por confirmar! 💕";
+            form.reset();
+          })
+          .catch(err => {
+            document.getElementById("form-message").textContent = "Error al enviar el formulario. Inténtalo de nuevo.";
+            console.error(err);
+          });
+      });
+      </script>
+      
   </body>
 
 </html>
