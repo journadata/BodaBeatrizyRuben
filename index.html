@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
     <style>
       .card {
-        background-color: #D8A7B1;
+        background-color: #F0C7C4;
       }
 
       .hero {
-        background-image: url('img/fotoportadaBea&Rubenrec.jpg');
-        background-size: cover;
-        background-position: center center;
+        background-image: url('img/fotoportadaBea&Rubencentered.jpg');
+        background-repeat: no-repeat;
+        background-size: 80% auto;
+        background-position: center top;
+        background-color: var(--color-base);
+        text-align: center;
         -webkit-background-size: cover;
         min-height: 100vh;
         display: flex;
         align-items: center;
+        padding: 5rem 1rem;
       }
 
       .hero-body {
         width: 100%;
-        color: #ff69b4;
-        font-family: 'Dancing Script', cursive;
+        color: #AC5E23;
+        font-family: 'Dancing script', sans-serif;
+        font-weight: 700;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -43,37 +49,37 @@
       }
 
       .hero .title {
-        color: #B8C0A8;
-        font-size: 3rem;
+        color: #F4E6D0;
+        font-size: 8rem;
         font-weight: bold;
         text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
         -webkit-text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
       }
 
       .hero .subtitle {
-        color: #E2C290;
-        font-size: 1.6rem;
-        font-weight: bold;
+        color: #F4E6D0;
+        font-size: 5rem;
+        font-weight: bold; 
         text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
         -webkit-text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
       }
 
       .hero-date-button {
         margin: 1.5rem auto 0 auto;
-        font-family: 'Roboto Slab', serif;
-        font-size: 1.2rem;
+        font-family: 'Dancing script', serif;
+        font-size: 3rem;
         padding: 1rem 1.5rem;
-        line-height: 1.4;
+        line-height: 3;
         box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       }
 
       @media screen and (max-width: 768px) {
         .hero .title {
-          font-size: 2rem;
+          font-size: 3rem;
         }
 
         .hero .subtitle {
-          font-size: 1.2rem;
+          font-size: 2rem;
         }
 
         .hero-body {
@@ -81,119 +87,153 @@
         }
       }
     </style>
+    <style>
+      .gallery-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 12px;
+      }
+    
+      .gallery-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.5s ease, box-shadow 0.3s ease;
+      }
+    
+      .gallery-img:hover {
+        transform: scale(1.2); /* Zoom al pasar el ratón */
+        z-index: 10;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      }
+    
+      .main-img {
+        grid-column: 1 / -1;
+        height: 450px;
+      }
+    
+      @media (prefers-color-scheme: dark) {
+        section#Donde {
+          background-color: #1e1e1e;
+        }
+        h1.title {
+          color: #ffb6c1;
+        }
+      }
+    </style>
   
-<style>
-  @media (prefers-color-scheme: dark) {
-    body, section, .hero, .navbar, .footer, .card, .box, .message, .dropdown-content {
-      background-color: #121212 !important;
-      color: #f1f1f1 !important;
-    }
+    <style>
+      @media (prefers-color-scheme: dark) {
+        body, section, .hero, .navbar, .footer, .card, .box, .message, .dropdown-content {
+          background-color: #121212 !important;
+          color: #f1f1f1 !important;
+        }
 
-    .hero .title, .hero .subtitle,
-    .title, .subtitle,
-    .label, .navbar-item, .content, .message-body, .message-header, .footer {
-      color: #f1f1f1 !important;
-    }
+        .hero .title, .hero .subtitle,
+        .title, .subtitle,
+        .label, .navbar-item, .content, .message-body, .message-header, .footer {
+          color: #000000 !important;
+        }
 
-    .navbar, .navbar-menu, .navbar-dropdown, .box, .message, .card, .footer {
-      background-color: #1e1e1e !important;
-    }
+        .navbar, .navbar-menu, .navbar-dropdown, .box, .message, .card, .footer {
+          background-color: #1e1e1e !important;
+        }
 
-    .button.is-primary, .button.is-link, .button.is-white {
-      background-color: #bb86fc !important;
-      color: #000 !important;
-    }
+        .button.is-primary, .button.is-light, .button.is-white {
+          background-color: #f1b0e5 !important;
+          color: #000 !important;
+        }
 
-    .button.is-light, .button.is-outlined {
-      background-color: transparent !important;
-      border-color: #f1f1f1 !important;
-      color: #f1f1f1 !important;
-    }
+        .button.is-light, .button.is-outlined {
+          background-color: transparent !important;
+          border-color: #f1f1f1 !important;
+          color: #f1f1f1 !important;
+        }
 
-    input, textarea, select {
-      background-color: #2c2c2c !important;
-      color: #f1f1f1 !important;
-      border-color: #444 !important;
-    }
+        input, textarea, select {
+          background-color: #2c2c2c !important;
+          color: #f1f1f1 !important;
+          border-color: #444 !important;
+        }
 
-    .box, .card, .message-body {
-      border-color: #333 !important;
-    }
+        .box, .card, .message-body {
+          border-color: #000 !important;
+        }
 
-    a, a:visited {
-      color: #90caf9 !important;
-    }
+        a, a:visited {
+          color: #90caf9 !important;
+        }
 
-    code {
-      background-color: #2c2c2c !important;
-      color: #f1f1f1 !important;
-    }
-  }
-</style>
+        code {
+          background-color: #2c2c2c !important;
+          color: #f1f1f1 !important;
+        }
+      }
+    </style>
 
 
-<style>
-  @media (prefers-color-scheme: dark) {
-    body, section, .hero, .navbar, .footer, .card, .box, .message, .dropdown-content {
-      background-color: #121212 !important;
-      color: #f1f1f1 !important;
-    }
+    <style>
+      @media (prefers-color-scheme: dark) {
+        body, section, .hero, .navbar, .footer, .card, .box, .message, .dropdown-content {
+          background-color: #121212 !important;
+          color: #f1f1f1 !important;
+        }
 
-    .hero .title, .hero .subtitle,
-    .title, .subtitle,
-    .label, .navbar-item, .content, .message-body, .message-header, .footer,
-    h1, h2, h3, h4, h5, h6, p {
-      color: #e0e0e0 !important;
-    }
+        .hero .title, .hero .subtitle,
+        .title, .subtitle,
+        .label, .navbar-item, .content, .message-body, .message-header, .footer,
+        h1, h2, h3, h4, h5, h6, p {
+          color: #e0e0e0 !important;
+        }
 
-    .navbar, .navbar-menu, .navbar-dropdown, .box, .message, .card, .footer {
-      background-color: #1e1e1e !important;
-    }
+        .navbar, .navbar-menu, .navbar-dropdown, .box, .message, .card, .footer {
+          background-color: #1e1e1e !important;
+        }
 
-    .button.is-primary, .button.is-link, .button.is-white {
-      background-color: #bb86fc !important;
-      color: #000 !important;
-    }
+        .button.is-primary, .button.button.is-light, .button.is-white {
+          background-color: #bb86fc !important;
+          color: #000 !important;
+        }
 
-    .button.is-light, .button.is-outlined, .button {
-      background-color: transparent !important;
-      border-color: #f1f1f1 !important;
-      color: #f1f1f1 !important;
-    }
+        .button.is-light, .button.is-outlined, .button {
+          background-color: transparent !important;
+          border-color: #f1f1f1 !important;
+          color: #f1f1f1 !important;
+        }
 
-    input, textarea, select {
-      background-color: #2c2c2c !important;
-      color: #ffffff !important;
-      border-color: #555 !important;
-    }
+        input, textarea, select {
+          background-color: #2c2c2c !important;
+          color: #ffffff !important;
+          border-color: #555 !important;
+        }
 
-    .box, .card, .message-body {
-      border-color: #333 !important;
-    }
+        .box, .card, .message-body {
+          border-color: #000 !important;
+        }
 
-    a, a:visited {
-      color: #80cbc4 !important;
-    }
+        a, a:visited {
+          color: #697247 !important;
+        }
 
-    code {
-      background-color: #2c2c2c !important;
-      color: #f1f1f1 !important;
-    }
+        code {
+          background-color: #2c2c2c !important;
+          color: #f1f1f1 !important;
+        }
 
-    .tag {
-      background-color: #333 !important;
-      color: #eee !important;
-    }
+        .tag {
+          background-color: #333 !important;
+          color: #eee !important;
+        }
 
-    .navbar-item:hover {
-      background-color: #2a2a2a !important;
-    }
-  }
-</style>
-
-</head>
+        .navbar-item:hover {
+          background-color: #2a2a2a !important;
+        }
+      }
+    </style>
+  </head>
   <body>
-
     <nav class="navbar is-light is-spaced" role="navigation" style="background-color: #D8A7B1;">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">💍 Nuestra Boda</a>
@@ -206,13 +246,13 @@
 
       <div id="mainNavbar" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item has-text-white" href="#Sobre-nosotros">Los novios</a>
-          <a class="navbar-item has-text-white" href="#Donde">¿Dónde?</a>
-          <a class="navbar-item has-text-white" href="#Eventos">Eventos</a>
-          <a class="navbar-item has-text-white" href="#Alojamiento">¿Dónde dormir?</a>
-          <a class="navbar-item has-text-white" href="#MasInfo">+Info</a>
+          <a class="navbar-item has-text-Black" href="#Sobre-nosotros">Los novios</a>
+          <a class="navbar-item has-text-black" href="#Donde">¿Dónde?</a>
+          <a class="navbar-item has-text-black" href="#Eventos">Eventos</a>
+          <a class="navbar-item has-text-Black" href="#Alojamiento">¿Dónde dormir?</a>
+          <a class="navbar-item has-text-Black" href="#MasInfo">+Info</a>
           <a class="navbar-item" href="#Confirmar">
-            <button class="button" style="background-color: #eb3572; color: white;">¡Sí, quiero ir!</button>
+            <button class="button" style="background-color: #eb3572; color: rgb(255, 255, 255);">¡Sí, quiero ir!</button>
           </a>
         </div>
         <div class="navbar-end">
@@ -224,14 +264,14 @@
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero is-medium">
       <div class="hero-body">
-        <div class="hero-text-box">
+        <div class="hero-text-box has-text-centered">
           <p class="title">¡Nos casamos!</p>
           <p class="subtitle">Beatriz y Rubén</p>
         </div>
-        <button class="button is-rounded is-light is-outlined hero-date-button">
-          Sábado, 27 de septiembre de 2025
+        <button class="button is-rounded is-outlined is warning is-light hero-date-button">
+         Aínsa, Sobrarbe | Sábado, 27 de septiembre de 2025
         </button>
       </div>
     </section>
@@ -254,15 +294,10 @@
     </script>
 
   </body>
-</html>
 
-
-  </body>
-</html>
-
-    
+  
     <section class="section has-text-centered"  style="background-color: #F9E5E5;">
-      <h2 class="title is-3">⏳ Cuenta atrás para el gran día</h2>
+      <h2 class="title is-3">Cuenta atrás para el gran día</h2>
       <div id="countdown" class="columns is-centered is-mobile mt-4">
         <div class="column is-narrow has-text-centered">
           <p class="title is-2" id="days">00</p>
@@ -287,8 +322,14 @@
       <div class="container">
         <div class="columns is-vcentered is-variable is-8">
           
-          <!-- Imagen -->
-          <div class="column is-half">
+          <!-- Imagenes -->
+          <div class="column">
+            <figure class="image is-5by3 mb-4">
+              <img src="img/Bea&RubenAinsaPGok.JPG" alt="Beatriz y Rubén" class="box">
+            </figure>
+          
+          
+          
             <figure class="image is-5by3">
               <img src="img/Bea&RubenPena.jpg" alt="Beatriz y Rubén" class="box">
             </figure>
@@ -303,11 +344,11 @@
               </h2>
               <p>
                 Una historia llena de aprendizajes, risas, desafíos y mucho, mucho amor.
-                <p>   Y ahora, queremos dar un paso más, celebrándolo rodeados de todos vosotros, las personas que habéis formado parte de este viaje.</br> 
+                <p>   Y ahora, queremos dar un paso más, celebrándolo rodeados de todos vosotros, las personas que habéis formado parte de este viaje.<br> 
 
                 <p>Porque en cada etapa nos habéis acompañado, con consejos, abrazos, palabras bonitas...y porque sois parte de lo que somos hoy. </p> 
 
-                <br> ✨ Nos hace muchísima ilusión invitaros a compartir este momento tan especial con nosotros.</br>
+                <br> ✨ Nos hace muchísima ilusión invitaros a compartir este momento tan especial con nosotros.<br>
                
               </p>
               <p>
@@ -319,22 +360,33 @@
         </div>
       </div>
     </section>
-<!-- SECCIÓN LOCALIZACIÓN -->
+    <!-- SECCIÓN LOCALIZACIÓN -->
+    
     <section class="section is-medium" id="Donde" style="background-color: #F9E5E5;">
       <div class="container has-text-left">
         <h1 class="title is-3by2 has-text-weight-bold" style="color: #B65C6B;">
-          Localización... un lugar especial </h1>
-          
-          <div class="content mb-5">
-            <img
-              src="img/penamontanesa.jpg" 
-              alt="Peña Montañesa"
-              style="width: 100%; height: 450px; object-fit: cover; border-radius: 12px;" 
-                          
-            />
-            </iframe>
-          </div>    
+          📍Localización... un lugar especial
+        </h1>
 
+        <div class="gallery-wrapper mt-4">
+          <!-- Imagen principal a ancho completo -->
+          <img src="img/penamontanesa.jpg" alt="Peña Montañesa" class="gallery-img main-img">
+    
+          <!-- Mosaico desordenado -->
+          <img src="img/Ainsa.JPG" alt="Iglesia de Aínsa" class="gallery-img">
+          <img src="img/Ainsanevado.JPG" alt="Aínsa con montañas nevadas" class="gallery-img">
+          <img src="img/PinetaBea&Ruben.JPG" alt="Imagen adicional" class="gallery-img">
+          <img src="img/IglesiaAinsa.JPG" alt="Otra vista de Aínsa" class="gallery-img">   
+          
+          <!-- Imagen principal a ancho completo -->
+          <img src="img/Ordesa.JPG" alt="Peña Montañesa" class="gallery-img main-img">
+
+        </div>
+          <!-- Añade más imágenes si lo deseas -->
+        </div>
+      </div>
+
+      <div>
         <h2 class="subtitle is-4by3 mb-6" style="color: #8C5C5C;">
           ¿Cómo llegar? ¡Es mucho más fácil de lo que piensas!
         </h2>
@@ -353,12 +405,10 @@
       </div>
     </section>
     
-<!-- SECCIÓN EVENTOS -->
+    <!-- SECCIÓN EVENTOS -->
     <section class="section is-medium" id="Eventos">
-      <h1 class="title">Eventos</h1>
-      <h2 class="subtitle"> 
-        Nos encantaría que formaras parte de nuestra boda el <strong>27 de septiembre de 2025</strong>.
-      </h2>
+      <h1 class="title">💒Eventos</h1>
+      
       <div class="columns">
         <div class="column">
 
@@ -378,14 +428,14 @@
               </div>
               <div class="media-content">
                 <p class="title is-4">Viernes, 26 de septiembre</p>
-                <p class="subtitle is-6">Reencuentro, 20:00</p>
+                <p class="subtitle is-6">Reencuentro, 19:00</p>
               </div>
             </div>
          
             <div class="content">
               <p>Para reencontrarnos con todos los invitados <strong>antes del día de la boda</strong>, os esperamos en el <a href="https://moradenuei.com/">Restaurante Mora de Nuei</a> de Aínsa. 
-                <br> Allí, charlaremos y degustaremos la gastronomía local para ir calentando motores para el dia D.  </br>      
-                <br> Tan sólo tenéis que traer muchas ganas de ver a los novios antes del día tan especial y pasarlo bien. </br>
+                <br> Allí, charlaremos y degustaremos la gastronomía local para ir calentando motores para el dia D.  <br>      
+                <br> Tan sólo tenéis que traer muchas ganas de ver a los novios antes del día tan especial y pasarlo bien. <br>
               </p>
             </div>
 
@@ -432,8 +482,8 @@
         
             <div class="content">
               Celebración de la boda en la <a href="https://villadeainsa.com/iglesia-de-santa-maria-de-ainsa/">Iglesia de Aínsa</a>. 
-              <br>  Podéis aparcar el coche en el parking del Castillo y desde allí acceder atravesando la plaza Mayor de Aínsa. </br>
-              <br>  ¡Cuidado con los adoquines para las que vengáis con tacones! Os recomendamos que caminéis por la parte central de la plaza que hay unas piedras lisas en fila. </br>                
+              <br>  Podéis aparcar el coche en el parking del Castillo y desde allí acceder atravesando la plaza Mayor de Aínsa. <br>
+              <br>  ¡Cuidado con los adoquines para las que vengáis con tacones! Os recomendamos que caminéis por la parte central de la plaza que hay unas piedras lisas en fila. <br>                
             </div>
 
                  <!-- (DESCARTADO) Dropdown para Dress Code 
@@ -452,7 +502,7 @@
                     Pensad en un estilo elegante, pero relajado: queremos veros radiantes, sin perder comodidad.
                     Trajes y vestidos de fiesta son bienvenidos, pero no hace falta ir de alfombra roja.
                     <br> El entorno es natural, así que podéis evitar tacones finos y optar por calzado (¡pero bonito!).
-                    Colores alegres, tejidos ligeros y un toque campestre serán perfectos para celebrar entre montañas.</br> 
+                    Colores alegres, tejidos ligeros y un toque campestre serán perfectos para celebrar entre montañas.<br> 
                   </p>
                 </div>
               </div>
@@ -499,8 +549,8 @@
         
             <div class="content">
               Celebración del enlace en el <a href="https://www.hotelpenamontanesa.com/">Hotel Spa Peña Montañesa. </a> 
-              <br> En cuanto lleguéis, tendréis que esperarnos a que acabemos de hacernos las fotos degustando el cocktail de bienvenida y muchas sorpresas más. </br> 
-              <br> Estad atentos a los detalles. En cuanto lleguemos, pasaremos al salón para el almuerzo y la FIESTA. </br>              
+              <br> En cuanto lleguéis, tendréis que esperarnos a que acabemos de hacernos las fotos degustando el cocktail de bienvenida y muchas sorpresas más. <br> 
+              <br> Estad atentos a los detalles. En cuanto lleguemos, pasaremos al salón para el almuerzo y la FIESTA. <br>              
             </div>
 
             <div class="content">
@@ -537,62 +587,94 @@
               <div class="message-body">
                 Pensad en un estilo elegante, pero relajado: queremos veros radiantes, sin perder comodidad.
                 Trajes y vestidos de fiesta son bienvenidos, pero no hace falta ir de alfombra roja.
-                <br> El entorno es natural, así que podéis evitar tacones finos y optar por calzado (¡pero bonito!).</br>
-                <br> Colores alegres, tejidos ligeros y un toque campestre serán perfectos para celebrar entre montañas.</br> 
+                <br> El entorno es natural, así que podéis evitar tacones finos y optar por calzado (¡pero bonito!).<br>
+                <br> Colores alegres, tejidos ligeros y un toque campestre serán perfectos para celebrar entre montañas.<br> 
               </div>
             </article>
           </div>
     
-          <!-- BLOQUE 2: Formulario de canciones -->
+          
+
+         <!-- BLOQUE 2: Formulario de canciones -->
           <div class="column">
             <article class="message is-warning">
               <div class="message-header">
                 <p>🎶 ¡Proponed música para la boda!</p>
               </div>
               <div class="message-body">
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLScVwvM7fZZ1d9ge1JRxp_ziayx1nTe0RpU5xdgj6bzjIc3sDQ/formResponse" method="POST" target="hidden_iframe" onsubmit="return submitForm()">
+                <form id="form-canciones">
                   <div class="field">
                     <label class="label">Título de la canción</label>
                     <div class="control">
-                      <input class="input" type="text" name="entry.1994371511" placeholder="Ej. La Macarena" required>
+                      <input class="input" type="text" id="titulo" placeholder="Ej. La Macarena" required>
                     </div>
                   </div>
-    
+
                   <div class="field">
                     <label class="label">Artista</label>
                     <div class="control">
-                      <input class="input" type="text" name="entry.702365716" placeholder="Ej. Los del Río" required>
+                      <input class="input" type="text" id="artista" placeholder="Ej. Los del Río" required>
                     </div>
                   </div>
-    
+
                   <div class="field is-grouped is-justify-content-flex-end mt-4">
                     <div class="control">
-                      <button class="button is-primary is-rounded"> 🎶 ¡A bailar!</button>
+                      <button type="submit" class="button is-primary is-rounded"> 💃🏽🪩🕺🏽 ¡A bailar!</button>
                     </div>
                   </div>
                 </form>
+                <div id="mensaje-formulario"></div>
               </div>
             </article>
           </div>
+
+          <script>
+            const urlWebApp = 'https://script.google.com/macros/s/AKfycbxz6NKYdrooKQHVGbMNN9ZxeVlO8FJ7tBV3rJKNG5WcSBsQ1KbFrrcohtHRpUOoEZbE/exec'; // Sustituye esto por la URL de tu Web App de Google Apps Script
+            
+            document.getElementById('form-canciones').addEventListener('submit', function(event) {
+              event.preventDefault();
+              
+              const titulo = document.getElementById('titulo').value;
+              const artista = document.getElementById('artista').value;
+
+              // Verificar si los campos no están vacíos
+              if (!titulo || !artista) {
+                document.getElementById('mensaje-formulario').innerText = 'Por favor, completa todos los campos.';
+                return;
+              }
+
+              // Usar AJAX para enviar datos al Google Apps Script (Web App)
+              const xhr = new XMLHttpRequest();
+              xhr.open('POST', urlWebApp, true);
+              xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+              
+              // Construir la cadena de parámetros
+              const params = 'titulo=' + encodeURIComponent(titulo) + '&artista=' + encodeURIComponent(artista);
+              
+              // Enviar la solicitud
+              xhr.send(params);
+
+              // Manejar la respuesta
+              xhr.onload = function() {
+                if (xhr.status === 200) {
+                  document.getElementById('mensaje-formulario').innerText = '🎵 ¡Gracias por tu propuesta!';
+                  document.getElementById('form-canciones').reset();
+                } else {
+                  document.getElementById('mensaje-formulario').innerText = 'Hubo un error al enviar los datos.';
+                }
+              };
+            });
+          </script>
         </div>
       </div>
     </section>
     
-    <!-- Esta es la magia que oculta el iframe (respuesta del formulario de Google Forms) -->
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-    <script>
-      function submitForm() {
-        // Puedes agregar un mensaje de éxito aquí si quieres
-        alert('¡Gracias por compartir tu canción!');
-        return true;
-      }
-    </script>
     
    
-<!-- DONDE DORMIR -->
-    <section class="section is-medium" id="Alojamiento" style="background-color: #F9E5E5;>
+    <!-- DONDE DORMIR -->
+    <section class="section is-medium" id="Alojamiento" style="background-color: #F9E5E5;">
       <div class="container">
-        <h1 class="title is-3by2 has-text-weight-bold" style="color: #B65C6B;">¿Dónde dormir?</h1> 
+        <h1 class="title is-3by2 has-text-weight-bold" style="color: #B65C6B;">🛏️¿Dónde dormir?</h1> 
         <h2 class="subtitle has-text-left is-4by3 mb-6" style="color: #8C5C5C;">
           Queremos que viváis este finde con nosotros de la forma más cómoda y especial posible.  
           Por eso os recomendamos alojaros en el mismo lugar donde será la fiesta...  
@@ -605,7 +687,7 @@
         <div class="columns">
           <!-- Hotel Spa Peña Montañesa (3/4) -->
           <div class="column is-9">
-            <div class="box has-background-warning-light mb-6">
+            <div class="box has-background-light mb-6">
               <div class="tags mb-2">
                 <span class="tag is-danger is-light">Recomendado</span>
                 <span class="tag is-success is-light">Banquete y fiesta</span>
@@ -624,7 +706,7 @@
                   </ul>
                 <p>
               </p>
-              <a href="https://www.hotelpenamontanesa.com/" target="_blank" class="button is-link is-small mt-2">Ver web</a>
+              <a href="https://www.hotelpenamontanesa.com/" target="_blank" class="button is-info is-small mt-2">Ver web</a>
               <div class="mt-4">
                 <img 
                 src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/192961019.jpg?k=0392bdcf7bc0d2b518cedc7f4aead478eb8a86d114e0718d20ee3cc93985d4af&o=" 
@@ -643,7 +725,7 @@
         
           <!-- Camping Peña Montañesa (1/4) -->
           <div class="column is-3">
-            <div class="box has-background-warning-light mb-6">
+            <div class="box has-background-light mb-6">
               <div class="tags mb-2">
                 <span class="tag is-danger is-light">Recomendado</span>
                 <span class="tag is-success is-light">Opción económica</span>
@@ -653,9 +735,16 @@
               <p>
                 Está justo <b>al lado del hotel, siguiendo el camino </b> como podéis ver en el mapa. 
                 <br> Con opción de bungalows y parcelas, es una alternativa más económica pero muy cómoda.</b>
+                <p> <strong>Tarifa bongalow (¡acordaos de decir que venís a la Boda de Beatriz y Rubén!) </strong>
+                <ul>
+                  <li>2 personas: 85,5 euros/noche </li> 
+                  <li>3 personas: 121,5 euros/noche </li> 
+                  <li>4 personas: 130,5 euros/noche </li> 
+                </ul>
+                </p>
                <!--  <br>  También podéis decir que venís a la Boda de Beatriz y Rubén y <b> os harán algun descuento! </b> -->
               </p>
-              <a href="https://www.campingpenamontanesa.com/" target="_blank" class="button is-link is-small mt-2">Ver web</a>
+              <a href="https://www.campingpenamontanesa.com/" target="_blank" class="button is-info is-small mt-2">Ver web</a>
             </div>
           </div>
         </div>
@@ -674,7 +763,7 @@
                 </div>
                 <p class="title is-6">Hotel Mesón de l'Aínsa</p>
                 <p>Con habitaciones renovadas, en Aínsa y con precios ajustados.</p>
-                <a href="https://mesonainsa.com/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://mesonainsa.com/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -687,7 +776,7 @@
                 </div>
                 <p class="title is-6">Hotel Sánchez</p>
                 <p>En el centro de Aínsa y con precios ajustados.</p>
-                <a href="https://www.hotelsanchez.com/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://www.hotelsanchez.com/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -700,7 +789,7 @@
                 </div>
                 <p class="title is-6">Hotel Apolo</p>
                 <p>Ambiente acogedor, ideal para descansar sin gastar mucho.</p>
-                <a href="https://www.hotelapolo.com/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://www.hotelapolo.com/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -712,7 +801,7 @@
                 </div>
                 <p class="title is-6">Hostal Apolo</p>
                 <p>Ideal si buscáis algo sencillo pero bien ubicado y cómodo.</p>
-                <a href="https://www.hostalapolo.com/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://www.hostalapolo.com/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -730,7 +819,7 @@
                 </div>
                 <p class="title is-6">Hotel Siete Reyes</p>
                 <p>Con encanto medieval y una ubicación preciosa en pleno corazón de Aínsa.</p>
-                <a href="https://www.hotelsietereyes.com/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://www.hotelsietereyes.com/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -744,7 +833,7 @@
                 </div>
                 <p class="title is-6">Hotel & Spa Monasterio de Boltaña</p>
                 <p>Lujo, spa y vistas espectaculares. A pocos minutos en coche de Aínsa.</p>
-                <a href="https://www.barcelo.com/es-es/barcelo-monasterio-de-boltana/" target="_blank" class="button is-small is-link mt-2">Ver web</a>
+                <a href="https://www.barcelo.com/es-es/barcelo-monasterio-de-boltana/" target="_blank" class="button is-small is-info mt-2">Ver web</a>
               </div>
             </div>
           </div>
@@ -756,134 +845,180 @@
       </div>
     </section>
 
-<!-- CONFIRMACIÓN-->
-  
+    <!-- CONFIRMACIÓN-->
     
-<section class="section is-medium" id="Confirmar">
-  <h1 class="title has-text-centered has-text-weight-bold" style="font-family: 'Caveat', cursive; color: #B65C6B; font-size: 3rem;">
-    ¡Sí, quiero ir!
-  </h1>
-  <h2 class="subtitle has-text-centered" style="font-family: 'Caveat', cursive; color: #B65C6B;">
-    ¿A qué estás esperando? Te agradeceríamos mucho que nos confirmes tu asistencia cuanto antes
-  </h2>
+    <section class="section is-medium" id="Confirmar">
+      <h1 class="title has-text-centered has-text-weight-bold" style="font-family: 'Caveat', cursive; color: #B65C6B; font-size: 3rem;">
+        ¡Sí, quiero ir!
+      </h1>
+      <h2 class="subtitle has-text-centered" style="font-family: 'Caveat', cursive; color: #B65C6B;">
+        ¿A qué estás esperando? Te agradeceríamos mucho que nos confirmes tu asistencia cuanto antes
+      </h2>
 
-  <div class="container is-max-desktop">
-    <form id="boda-form">
-      <div class="field">
-        <label class="label">Nombre y apellidos *</label>
-        <div class="control">
-          <input class="input" type="text" name="nombre" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Correo electrónico *</label>
-        <div class="control">
-          <input class="input" type="email" name="email" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">¿Puedes asistir?</label>
-        <div class="control">
-          <div class="select">
-            <select name="asistencia">
-              <option value="Sí">¡Sí, por supuesto!</option>
-              <option value="No">No, lo siento</option>
-            </select>
+      <div class="container is-max-desktop">
+        <form id="boda-form">
+          
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Nombre y apellidos*</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="nombre" name="nombre" type="text" placeholder="Nombre y apellidos" required>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="field">
-        <label class="label">¿Vendrás acompañado/a?</label>
-        <div class="control">
-          <div class="select">
-            <select name="acompanado">
-              <option value="No">No</option>
-              <option value="Sí">Sí</option>
-            </select>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Móvil*</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="movil" name="movil" type="text" placeholder="Número de teléfono" required>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="field">
-        <label class="label">Nombre del/los acompañantes</label>
-        <div class="control">
-          <input class="input" type="text" name="nombres_acompanantes">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">¿Vendrán niños?</label>
-        <div class="control">
-          <div class="select">
-            <select name="ninos">
-              <option value="No">No</option>
-              <option value="Sí">Sí</option>
-            </select>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Correo electrónico*</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="email" name="email" type="email" placeholder="e-mail" required>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">¿Puedes asistir?</label></div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="confirmacion_asistencia" name="confirmacion_asistencia" required>
+                      <option value="">Selecciona</option>
+                      <option value="Sí">Sí, ¡por supuesto!</option>
+                      <option value="No">No, lo siento</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">¿Vendrás acompañado?</label></div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="vendras_acompanado" name="vendras_acompanado" required>
+                      <option value="">Selecciona</option>
+                      <option value="Sí">Sí</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Acompañantes</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="acompanantes" name="acompanantes" type="text" placeholder="Nombre de los acompañantes">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">¿Vendrás con tus hijos?</label></div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="hijos" name="hijos" required>
+                      <option value="">Selecciona</option>
+                      <option value="Sí">Sí</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Hijos/as</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="info_hijos" name="info_hijos" type="text" placeholder="Nombre y edad de los hijos/as">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">¿Tienes alguna alergia o intolerancia?</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="alergias" name="alergias" type="text" placeholder="alergias, intolerancias">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Dieta especial</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" id="dieta" name="dieta" type="text" placeholder="vegetariano, vegano, etc">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Observaciones</label></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea class="textarea" id="observaciones" name="observaciones" placeholder="Preguntas/comentarios..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label"><!-- Espacio vacío --></div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <button type="submit" class="button is-primary">
+                    💌 ¡Confirmar asistencia!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <div id="form-message" class="has-text-centered mt-4"></div>
       </div>
-
-      <div class="field">
-        <label class="label">¿Tienes alguna alergia o intolerancia?</label>
-        <div class="control">
-          <input class="input" type="text" name="alergias">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Dieta especial (vegetariano, vegano, etc)</label>
-        <div class="control">
-          <input class="input" type="text" name="dieta">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Observaciones</label>
-        <div class="control">
-          <textarea class="textarea" name="observaciones"></textarea>
-        </div>
-      </div>
-
-      <div class="field is-grouped is-justify-content-center">
-        <div class="control">
-          <button class="button is-primary is-rounded" type="submit">💌 Confirmar asistencia</button>
-        </div>
-      </div>
-    </form>
-
-    <div id="form-message" class="has-text-centered mt-4"></div>
-  </div>
-</section>
-
-<script>
-  document.getElementById("boda-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form).entries());
-
-    fetch("https://script.google.com/macros/s/AKfycbw-ud5-VTuRhekDrDiDpqlf07qugap82OdLLz91JeKczO2r8bLd3V42bwQ5vsnlhwsFow/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
-    })
-    .then(res => res.json())
-    .then(res => {
-      document.getElementById("form-message").textContent = "¡Gracias por confirmar! 💕";
-      form.reset();
-    })
-    .catch(err => {
-      document.getElementById("form-message").textContent = "Error al enviar el formulario. Inténtalo de nuevo.";
-      console.error(err);
-    });
-  });
-</script>
+    </section>
 
 
 
-<!-- sección REGALITO -->  
+    <!-- sección REGALITO -->  
     <section class="section" id="Regalito">
       <div class="container">
         <div class="box" style="background-color: #D8A7B1">
@@ -945,30 +1080,29 @@
     </footer>
 
     <script>
-      document.getElementById("boda-form").addEventListener("submit", function (e) {
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxZ3b375ImBWm75Feax4d0ezV-OhF2cw3ZZ4zN2PTaf_4iMyUcTC3VcKtJrUmiq2lOAsA/exec'; // Reemplaza con la URL de tu WebApp de Google
+      const form = document.getElementById('boda-form');
+      const message = document.getElementById('form-message');
+    
+      form.addEventListener('submit', e => {
         e.preventDefault();
-      
-        const form = e.target;
-        const data = Object.fromEntries(new FormData(form).entries());
-      
-        fetch("https://script.google.com/macros/s/AKfycbw-ud5-VTuRhekDrDiDpqlf07qugap82OdLLz91JeKczO2r8bLd3V42bwQ5vsnlhwsFow/exec", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-          .then(res => res.json())
-          .then(res => {
-            document.getElementById("form-message").textContent = "¡Gracias por confirmar! 💕";
+        message.innerHTML = 'Enviando...';
+    
+        const formData = new FormData(form);
+    
+        fetch(scriptURL, { method: 'POST', body: formData })
+          .then(response => {
+            message.innerHTML = "<p class='has-text-success'>¡Gracias por confirmar tu asistencia!</p>";
             form.reset();
           })
-          .catch(err => {
-            document.getElementById("form-message").textContent = "Error al enviar el formulario. Inténtalo de nuevo.";
-            console.error(err);
+          .catch(error => {
+            message.innerHTML = "<p class='has-text-danger'>Ocurrió un error, inténtalo más tarde.</p>";
+            console.error('Error!', error.message);
           });
       });
-      </script>
+    </script>
+    
+    
       
   </body>
 
