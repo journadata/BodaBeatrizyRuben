@@ -176,7 +176,7 @@
         }
 
         input, textarea, select {
-          background-color: #2c2c2c !important;
+          background-color: #000000 !important;
           color: #f1f1f1 !important;
           border-color: #444 !important;
         }
@@ -226,11 +226,14 @@
         }
 
         input, textarea, select {
-          background-color: #2c2c2c !important;
+          background-color: #000000 !important;
           color: #ffffff !important;
           border-color: #555 !important;
         }
-
+        option {
+          color: black; /* Safari ignora color: white en dark mode, por eso esto puede requerir ajustes */
+          background-color: white;
+        }
         .box, .card, .message-body {
           border-color: #000 !important;
         }
